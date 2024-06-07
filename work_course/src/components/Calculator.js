@@ -33,7 +33,7 @@ function Calculator() {
   };
 
   const handleInput = (val) => {
-    if (answer === "Invalid Input!!") return;
+    if (answer === "Невозможные данные") return;
     if (val === "x²") val = "^2";
     else if (val === "x³") val = "^3";
     else if (val === "³√") val = "^(1/3)";
@@ -48,7 +48,7 @@ function Calculator() {
     let finalExpression = input.replaceAll("x", "*").replaceAll("÷", "/").replaceAll("√", "sqrt");
 
     try {
-      if (!checkBracketBalanced(finalExpression)) throw new Error("Brackets are not balanced!");
+      if (!checkBracketBalanced(finalExpression)) throw new Error("Есть лишние скобки");
       const result = evaluate(finalExpression);
       setAnswer(round(result, 3));
       setHistory((prev) => [
